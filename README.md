@@ -7,7 +7,7 @@ Backend
 	[x] Create new repo
     [] Watch videos again to refresh memory and code along changes
 	[] Create seed data
-    [] Table design
+    [x] Table design
         scouts
             scouts_first_name(string),scouts_last_name(string),scouts_troop(int),ID
         badges
@@ -30,3 +30,5 @@ Frontend
 
 Error fixes:
     bundle install errored out while installing pg (1.2.3), had to run "sudo apt-get install libpq-dev" to resolve.
+
+    gem file missing sql requirement and database.yml not having sqlite3 as database caused migrations to fail.
