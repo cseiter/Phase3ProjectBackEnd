@@ -27,3 +27,6 @@ Frontend
         [] Add routes with filters
 		[] Routes are links in header
 		[] Present results in formatted tables/printable reports
+
+Error fixes:
+    bundle install errored out while installing pg (1.2.3), had to run "sudo apt-get install libpq-dev" to resolve.
