@@ -13,6 +13,7 @@ Backend
         badges
             badges_name(string),badges_is_earned(boolean),badges_is_eagle(boolean),ID
     [x] test commands in rake console successful in pulling seed data
+    [] build out routes and logic
 
 
 Frontend
