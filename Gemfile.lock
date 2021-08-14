@@ -61,6 +61,7 @@ GEM
     sinatra-activerecord (2.0.23)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sqlite3 (1.4.2)
     thread_safe (0.3.6)
     tilt (2.0.10)
     tzinfo (1.2.9)
@@ -82,6 +83,7 @@ DEPENDENCIES
   rspec
   shotgun
   sinatra-activerecord
+  sqlite3 (~> 1.4)
 
 BUNDLED WITH
    2.2.24

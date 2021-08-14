@@ -4,5 +4,6 @@ class CreateScouts < ActiveRecord::Migration[5.2]
       t.string :scouts_f_name
       t.string :scouts_l_name
       t.integer :scouts_troop
+    end
   end
 end
