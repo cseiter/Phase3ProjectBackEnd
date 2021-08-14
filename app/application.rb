@@ -130,12 +130,22 @@ class Application
     # end
 
     # static route to test rack
-    if req.path.match(/test/) 
-      return [200, { 'Content-Type' => 'application/json' }, [ {:message => "test response!"}.to_json ]]
-
+    if req.path.match(/test/)
+      return [200, {'Content-Type' => 'application/json'}, [ {:message => "test response!"}.to_json ]]
     else
       res.write "Path Not Found"
+    end
 
+#show all badges and all badges info
+    if req.path == '/badges' && req.get?
+      all_badges = MeritBadge.all
+      return [
+        200,
+        {'Content-Type' => 'application/json'},
+        [all_badges.to_json]
+      ]
+    else
+      res.write "Path not found"
     end
 
     res.finish
