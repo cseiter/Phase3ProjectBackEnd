@@ -6,7 +6,7 @@ Backend
 	[x] Fork template repo
 	[x] Create new repo
     [] Watch videos again to refresh memory and code along changes
-	[] Create seed data
+	[x] Create seed data
     [x] Table design
         scouts
             scouts_first_name(string),scouts_last_name(string),scouts_troop(int),ID
