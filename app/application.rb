@@ -173,6 +173,17 @@ else
   res.write "merit badge name not found."
 end
 
+#show eagle/not eagle info
+if req.path == ("/badges/eagle") && req.get?
+  badge_eagle = MeritBadge.all.order(:badges_is_eagle)
+  return [
+    200,
+    {'Content-Type' => 'application/json'},
+    [badge_eagle.to_json]
+  ]
+else
+  res.write "info not found"
+end
 
 
 
