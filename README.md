@@ -12,6 +12,7 @@ Backend
             scouts_first_name(string),scouts_last_name(string),scouts_troop(int),ID
         badges
             badges_name(string),badges_is_earned(boolean),badges_is_eagle(boolean),ID
+    [x] test commands in rake console successful in pulling seed data
 
 
 Frontend
