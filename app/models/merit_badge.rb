@@ -1,3 +1,3 @@
 class MeritBadge < ActiveRecord::Base
-    belongs_to :scout
+    belongs_to :scouts
 end
