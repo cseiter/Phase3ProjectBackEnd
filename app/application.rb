@@ -148,6 +148,18 @@ class Application
       res.write "Path not found"
     end
 
+#show all scouts and all scouts info
+if req.path == '/scouts' && req.get?
+  all_scouts = Scout.all
+  return [
+    200,
+    {'Content-Type' => 'application/json'},
+    [all_scouts.to_json]
+  ]
+else
+  res.write "Path not found"
+end
+
     res.finish
   end
 
