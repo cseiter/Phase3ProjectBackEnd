@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_08_14_161722) do
 
   create_table "merit_badges", force: :cascade do |t|
     t.string "badges_name"
-    t.boolean "badges_is_earned"
-    t.boolean "badges_is_eagle"
+    t.string "badges_is_earned"
+    t.string "badges_is_eagle"
     t.integer "scouts_id"
   end
 
