@@ -186,6 +186,17 @@ else
   res.write "merit badge name not found."
 end
 
+#add merit badge to database
+if req.path.match(/badges/) && req.post?
+  body = JSON.parse(req.body.read)
+  add_badge = MeritBadge.create(body)
+  return [
+    201,
+    {'Content-Type' => 'application/json'},
+    [add_badge.to_json]
+  ]
+end
+
 
 
 
