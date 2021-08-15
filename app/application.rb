@@ -160,6 +160,19 @@ else
   res.write "Path not found"
 end
 
+#show eagle/not eagle info
+#not working correctly
+if req.path == "/badges/eagle" && req.get?
+  badge_eagle = MeritBadge.where(badge_is_eagle: true)
+  return [
+    200,
+    {'Content-Type' => 'application/json'},
+    [badge_eagle.to_json]
+  ]
+else
+  res.write "info not found"
+end
+
 #show single merit badge info
 if req.path.match(/badges/) && req.get?
   badge_name = req.path.split('/')[2]
@@ -173,17 +186,7 @@ else
   res.write "merit badge name not found."
 end
 
-#show eagle/not eagle info
-if req.path == ("/badges/eagle") && req.get?
-  badge_eagle = MeritBadge.all.order(:badges_is_eagle)
-  return [
-    200,
-    {'Content-Type' => 'application/json'},
-    [badge_eagle.to_json]
-  ]
-else
-  res.write "info not found"
-end
+
 
 
 
