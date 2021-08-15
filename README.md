@@ -34,3 +34,5 @@ Error fixes:
     bundle install errored out while installing pg (1.2.3), had to run "sudo apt-get install libpq-dev" to resolve.
 
     gem file missing sql requirement and database.yml not having sqlite3 as database caused migrations to fail.
+
+    boolean items in seed failing on using "True" "False", read up a bit and it was syntax error, ended up using 1 and 0 in seed
