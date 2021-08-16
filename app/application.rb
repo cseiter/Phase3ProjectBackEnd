@@ -5,6 +5,25 @@ class Application
     req = Rack::Request.new(env)
 
     #Badge Update
+    if req.path.match('/badges/') && req.patch?
+      badge_id = req.path.split('/')[2]
+      body = JSON.parse(req.body.read)
+      begin
+        badge_details = MeritBadge.find(badge_id)
+        badge_details.update(body)
+        return [
+          202,
+          {'Content-Type' => 'application/json'},
+          [badge_details.to_json]
+        ]
+      rescue
+        return [
+          404,
+          {'Content-Type' => 'application/json'},
+          [{message: "unable to update badge."}.to_json]
+        ]
+      end
+    end
 
     #Badge Delete  
 
