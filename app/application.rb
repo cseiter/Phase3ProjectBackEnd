@@ -25,7 +25,26 @@ class Application
       end
     end
 
-    #Badge Delete  
+    #Badge Delete
+    if req.path.match('/badges/') && req.delete?
+      badge_id = req.path.split('/')[2]
+      begin
+        badge_details = MeritBadge.find(badge_id)
+        badge_details.destroy
+        return [
+          200,
+          {'Content-Type' => 'application/json'},
+          [{message: "badge item deleted."}.to_json]
+        ]
+      rescue
+        return [
+          404,
+          {'Content-Type' => 'application/json'},
+          [{message: "unable to delete badge."}.to_json]
+        ]
+      end
+    end
+
 
     # static route to test rack
     if req.path.match(/test/)
