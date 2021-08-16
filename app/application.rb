@@ -66,11 +66,13 @@ class Application
     #end
 
     #show single badge by index
-    if req.path == ('/badges') && req.get?
+    if req.path.match('/badges/') && req.get?
+      badge_id = req.path.split('/')[2]
+      badge_details = MeritBadge.find(badge_id)
       return [
         200,
         {'Content-Type' => 'application/json'},
-        [MeritBadge.all.to_json]
+        [badge_details.to_json]
       ]
     else
       res.write "merit badge not found."
