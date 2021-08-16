@@ -53,16 +53,27 @@ class Application
     end
 
     #show single merit badge info
-    if req.path.match(/badges/) && req.get?
-      badge_name = req.path.split('/')[2]
-      badge_info = MeritBadge.where("badges_name like ?",badge_name)
+    #if req.path(/badges/) && req.get?
+    #  badge_name = req.path.split('/')[2]
+    #  badge_info = MeritBadge.where("badges_name like ?",badge_name)
+    #  return [
+    #    200,
+    #    {'Content-Type' => 'application/json'},
+    #    [badge_info.to_json]
+    #  ]
+    #else
+    #  res.write "merit badge name not found."
+    #end
+
+    #show single badge by index
+    if req.path == ('/badges') && req.get?
       return [
         200,
         {'Content-Type' => 'application/json'},
-        [badge_info.to_json]
+        [MeritBadge.all.to_json]
       ]
     else
-      res.write "merit badge name not found."
+      res.write "merit badge not found."
     end
 
     #add merit badge to database
